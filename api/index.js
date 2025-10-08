@@ -55,14 +55,12 @@ app.post('/api/posts', (req, res) => {
 // UPDATE (Actualizar un post existente)
 app.put('/api/posts/:id', (req, res) => {
     const db = readDB();
-    const postIndex = db.posts.findIndex(p => p.id === parseInt(req.params.id));
-    if (postIndex === -1) {
-        return res.status(404).json({ message: 'Post no encontrado' });
-    }
-    const updatedPost = { ...db.posts[postIndex], ...req.body };
-    db.posts[postIndex] = updatedPost;
+    const post = db.posts.find(p => p.id === parseInt(req.params.id));
+    if (!post) return res.status(404).json({ message: 'Post no encontrado' });
+    
+    Object.assign(post, req.body, { updatedAt: new Date().toISOString() });
     writeDB(db);
-    res.json(updatedPost);
+    res.json(post);
 });
 
 // DELETE (Eliminar un post)

@@ -3,10 +3,18 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
+// 👉 Swagger (añadir estas dos líneas)
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
+
 // Inicializamos la app de Express
 const app = express();
 app.use(express.json()); // Middleware para parsear JSON
 app.use(cors()); // Middleware para habilitar CORS
+
+// 👉 Swagger UI en /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 // Ruta al archivo de la base de datos
 const dbPath = path.resolve(__dirname, 'db.json');
@@ -78,6 +86,34 @@ app.delete('/api/posts/:id', (req, res) => {
 });
 
 // Netlify exporta el handler de la función
+
+
+/**
+ * @openapi
+ * /api/health:
+ *   get:
+ *     summary: Verifica que el servicio está vivo
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Servicio OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: ok
+ */
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+
+
+
+
 module.exports = app;
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 3001; // Usamos el puerto 3001 o el que prefieras

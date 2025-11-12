@@ -1,18 +1,21 @@
+// api/app.js
 const express = require('express');
 const cors = require('cors');
 
 const postsRouter = require('./routes/posts.routes');
+const usersRouter = require('./routes/users.routes');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// healthcheck opcional
-app.get('/', (_, res) => res.json({ ok: true }));
+// healthcheck
+app.get('/', (_, res) => res.json({ ok: true, service: 'api-pipeline' }));
 
 app.use('/api/posts', postsRouter);
+app.use('/api/users', usersRouter);
 
-// manejador de errores centralizado
+// error handler
 app.use((err, req, res, next) => {
   const status = err.status || 500;
   const message = err.message || 'Error interno del servidor';

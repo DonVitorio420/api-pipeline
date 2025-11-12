@@ -2,39 +2,14 @@
   "posts": [
     {
       "id": 1,
-      "title": "Mi primer post",
-      "content": "Contenido del post."
+      "title": "Uno",
+      "content": "Contenido"
     },
     {
       "id": 2,
-      "title": "Otro post",
+      "title": "Dos editado",
       "content": "Más contenido."
     }
   ],
-  "users": [
-    {
-      "id": 2,
-      "name": "Luis",
-      "email": "luis@demo.com",
-      "password": "abc"
-    },
-    {
-      "id": 3,
-      "name": "Kevin",
-      "email": "kevin@demo.com",
-      "password": "123"
-    },
-    {
-      "id": 4,
-      "name": "Carlos Pérez",
-      "email": "carlos@demo.com",
-      "password": "123"
-    },
-    {
-      "id": 5,
-      "name": "Laura Gómez",
-      "email": "laura@demo.com",
-      "password": "123"
-    }
-  ]
+  "users": []
 }

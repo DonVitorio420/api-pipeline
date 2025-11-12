@@ -1,43 +1,45 @@
-const service = require('../services/posts.service');
+// api/controllers/posts.controller.js
+const svc = require('../services/posts.service');
 
-async function list(req, res, next) {
+const getAll = (req, res, next) => {
   try {
-    const data = service.listPosts();
-    res.json(data);
+    res.json(svc.getAll());
   } catch (e) { next(e); }
-}
+};
 
-async function getById(req, res, next) {
+// NUEVO
+const getById = (req, res, next) => {
   try {
-    const id = parseInt(req.params.id);
-    const post = service.getPostById(id);
-    if (!post) return res.status(404).json({ message: 'Post no encontrado' });
-    res.json(post);
+    const item = svc.getById(req.params.id);
+    res.json(item);
   } catch (e) { next(e); }
-}
+};
 
-async function create(req, res, next) {
+const create = (req, res, next) => {
   try {
     const { title, content } = req.body || {};
-    const created = service.createPost({ title, content });
+    if (!title || !content) {
+      const err = new Error('El título y contenido son obligatorios');
+      err.status = 400;
+      throw err;
+    }
+    const created = svc.create({ title, content });
     res.status(201).json(created);
   } catch (e) { next(e); }
-}
+};
 
-async function update(req, res, next) {
+const update = (req, res, next) => {
   try {
-    const id = parseInt(req.params.id);
-    const updated = service.updatePost(id, req.body || {});
+    const updated = svc.update(req.params.id, req.body || {});
     res.json(updated);
   } catch (e) { next(e); }
-}
+};
 
-async function remove(req, res, next) {
+const remove = (req, res, next) => {
   try {
-    const id = parseInt(req.params.id);
-    service.deletePost(id);
-    res.status(204).send();
+    svc.remove(req.params.id);
+    res.status(204).end();
   } catch (e) { next(e); }
-}
+};
 
-module.exports = { list, getById, create, update, remove };
+module.exports = { getAll, getById, create, update, remove }; // <-- exporta getById

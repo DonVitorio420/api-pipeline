@@ -17,7 +17,7 @@ Clonar el repositorio:
 git clone https://github.com/DonVitorio420/api-pipeline.git
 
 Entrar al directorio del proyecto:
-cd tu-repo
+cd API-PIPELINE
 
 Instalar dependencias:
 npm install

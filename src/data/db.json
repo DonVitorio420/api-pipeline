@@ -22,21 +22,21 @@
   "users": [
     {
       "id": 1,
-      "nombre": "Carolina Palacio Gutierrez",
-      "email": "carolina.palaciout@amigo.edu.co",
-      "password": "123456"
+      "nombre": "kevin palacios",
+      "email": "kevin.palacios@amigo.edu.co",
+      "password": "*****"
     },
     {
       "id": 2,
-      "nombre": "Leidy Johana Arboleda Sanchez",
-      "email": "leidy.arboledasa@amigo.edu.co",
-      "password": "Leidy123"
+      "nombre": "victor pineda",
+      "email": "victor.pineda@amigo.edu.co",
+      "password": "****"
     },
     {
       "id": 3,
-      "nombre": "Miguel Angel Isaza Fajardo",
-      "email": "miguel.isazafa@amigo.edu.co",
-      "password": "MiguelIsaFa"
+      "nombre": "leandro tibaquira",
+      "email": "leandro.tibaquira@amigo.edu.co",
+      "password": "*****"
     }
   ]
 }

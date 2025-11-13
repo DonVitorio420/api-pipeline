@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "titulo": "Consulta",
+      "contenido": "Busco un teclado mecánico silencioso para trabajar de noche y mejorar mi setup."
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "titulo": "Recomendación",
+      "contenido": "Quiero una webcam con buena calidad para videollamadas y streaming."
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "titulo": "Solicitud",
+      "contenido": "Necesito un monitor 27\" con alta tasa de refresco para diseño y juegos."
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nombre": "Kevin palacios",
+      "email": "kevin.palaciospa@amigo.edu.co",
+      "password": "*****"
+    },
+    {
+      "id": 2,
+      "nombre": "victor pineda",
+      "email": "victor.pineda@amigo.edu.co",
+      "password": "****"
+    },
+    {
+      "id": 3,
+      "nombre": "leandro tibaquira",
+      "email": "leandro.tibaquira@amigo.edu.co",
+      "password": "****"
+    }
+  ]
+}
